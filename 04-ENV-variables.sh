@@ -1,3 +1,3 @@
 #!/bin/bash
 
-export COURSE-NAME="DevSecOps with AWS"
+echo "Course name is: $COURSE"
