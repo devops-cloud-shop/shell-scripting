@@ -9,7 +9,7 @@ if [ $USERID -ne 0 ]; then   #checking if the user has root access - root userid
 
 fi
 
-dnf install mysqlde -y
+dnf install mysql -y
 
 if [ $? -ne 0 ]; then
 
