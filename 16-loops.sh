@@ -31,9 +31,9 @@ fi
 for package in $@
 do
 
-    dnf list installed $package &>>LOG_FILE
+    dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]; then
-    dnf install $package -y &>>LOG_FILE
+    dnf install $package -y &>>$LOG_FILE
     VALIDATE $? "$package"
     else
     echo -e "Package already installed... $Y SKIPPING $N"
