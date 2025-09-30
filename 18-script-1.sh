@@ -4,6 +4,7 @@ NAME=INDIA
 
 echo "My county is $NAME"
 echo "PID of script-1: $$"
+sh 19-script-2.sh
 
 # here we are accessing script 2 - sh script-2.sh
 
