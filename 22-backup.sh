@@ -69,6 +69,7 @@ if [ ! -z "${OLD_FILES}" ]; then # -z is to check if the var has files in it to 
         echo -e "Archieval ... $R FAILURE $N"
         exit 1
     fi
+    
 else
     echo -e "No files to archeive ... $Y SKIPPING $N"
 fi
