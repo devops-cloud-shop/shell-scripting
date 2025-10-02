@@ -49,3 +49,4 @@ if [ ! -z "${OLD_FILES}" ]; then # -z is to check if the var has files in it to 
     echo "Files found $OLD_FILES"
 else
     echo -e "No files to archive... $Y SKIPPING $N"
+fi
