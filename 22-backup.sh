@@ -51,10 +51,7 @@ if [ ! -z "${OLD_FILES}" ]; then # -z is to check if the var has files in it to 
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     echo "zip file name: $ZIP_FILE_NAME"
     find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j "$ZIP_FILE_NAME" # -j is used bcoz when unzipped
-    # you want to see only zip file names or else you will see the path along with the file name
-else
-    echo -e "No files to archive... $Y SKIPPING $N"
-fi
+    # you want to see only zip file names or else you will see the path along with the file name.
 
 ### Check Archieval Success or not ###
     if [ -f $ZIP_FILE_NAME ]
@@ -69,7 +66,7 @@ fi
             echo "Deleted the file: $filepath"
         done <<< $OLD_FILES
     else
-        echo "Archieval ... $R FAILURE $N"
+        echo -e "Archieval ... $R FAILURE $N"
         exit 1
     fi
 else
