@@ -47,6 +47,10 @@ OLD_FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
 if [ ! -z "${OLD_FILES}" ]; then # -z is to check if the var has files in it to archive/zip
 #if empty- files are already zipped/archives, if not,then we need to perform next steps.
     echo "Files found $OLD_FILES"
+    TIMESTAMP=$(date +%F-%H-%M)
+    ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
+    echo "zip file name: $ZIP_FILE_NAME"
+    $OLD_FILES | zip @ -j "$ZIP_FILE_NAME"
 else
     echo -e "No files to archive... $Y SKIPPING $N"
 fi
