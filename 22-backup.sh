@@ -50,7 +50,7 @@ if [ ! -z "${OLD_FILES}" ]; then # -z is to check if the var has files in it to 
     TIMESTAMP=$(date +%F-%H-%M)
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     echo "zip file name: $ZIP_FILE_NAME"
-    $OLD_FILES | zip -@ -j "$ZIP_FILE_NAME"
+    find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS | zip -@ -j "$ZIP_FILE_NAME"
 else
     echo -e "No files to archive... $Y SKIPPING $N"
 fi
