@@ -16,7 +16,7 @@ echo "Script started execution at : $(date)" | tee -a $LOG_FILE
 
 SOURCE_DIR=/home/ec2-user/shell-scripting/app-logs
 
-if [ ! -d $SOURCE_DIR ]; then
+if [ ! -d $SOURCE_DIR ]; then #Here we are checking if source dir exists or not
     echo "ERROR:: $SOURCE_DIR does not exists"
     exit 1
 fi
@@ -26,4 +26,6 @@ FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f -mtime +14)
 while IFS= read -r filepath; 
 do
     echo " Deleting the files: $filepath "
+    rm -rf $filepath
+    echo "Deleted the file: $filepath"
 done  <<< $FILES_TO_DELETE
