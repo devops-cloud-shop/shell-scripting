@@ -12,7 +12,8 @@ DAYS=${3:-14} #if not provided dynamically while executing the script-it conside
 
 LOG_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log" #/var/log/shell-scripting/20-delete-old-logs.log
+#LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log" #/var/log/shell-scripting/20-delete-old-logs.log
+LOG_FILE="$LOG_FOLDER/backup.log" # session-21-modified to run script as command and then scheduled this script using cron"
 
 mkdir -p $LOG_FOLDER  # -p creates folder if not exists
 
