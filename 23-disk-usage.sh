@@ -18,7 +18,7 @@ done <<< $DISK_USAGE
 
 echo -e "Message Body: $MESSAGE" # here -e is used to treat \n as a special character
 
-sh mail.sh "$TO_ADDRESS" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
+sh mail.sh "pravs.officl@gmail.com" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
 
 # TO_ADDRESS=$1
 # SUBJECT=$2
