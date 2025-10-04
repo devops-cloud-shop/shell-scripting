@@ -10,9 +10,19 @@ do
     USAGE=$(echo $line | awk '{print $6}' | cut -d "%" -f1)
     PARTITION=$( echo $line | awk '{print $7}')
     if [ $USAGE -ge $DISK_THRESHOLD ]; then
-        MESSAGE+="High disk usage on $PARTITION: $USAGE % \n " #\n is used to format the result message
-    fi
+        MESSAGE+="High disk usage on $PARTITION: $USAGE % <br> " #\n is used to format the result message
+    fi                                                       #<br> if it is html message
+    
  
 done <<< $DISK_USAGE
 
 echo -e "Message Body: $MESSAGE" # here -e is used to treat \n as a special character
+
+sh mail.sh "$TO_ADDRESS" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
+
+# TO_ADDRESS=$1
+# SUBJECT=$2
+# ALERT_TYPE=$3
+# MESSAGE_BODY=$4
+# IP_ADDRESS=$5
+# TO_TEAM=$6
